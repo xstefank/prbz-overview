@@ -30,6 +30,9 @@
 		<version.jboss.spec.javaee.6.0>3.0.2.Final</version.jboss.spec.javaee.6.0>
 		<version.checkstyle.plugin>2.11</version.checkstyle.plugin>
 		<org.wildfly.wildfly.build.config.version>8.0.0.Final</org.wildfly.wildfly.build.config.version>
+
+		<gwt.version>2.7.0</gwt.version>
+		<gxt.version>3.1.1</gxt.version>
 	</properties>
 
 	<build>
@@ -56,6 +59,29 @@
 				<artifactId>jboss-as-maven-plugin</artifactId>
 				<version>7.4.Final</version>
 			</plugin>
+			<!-- GWT Maven Plugin -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>gwt-maven-plugin</artifactId>
+				<version>${gwt.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>
+							<goal>test</goal>
+							<goal>generateAsync</goal>
+						</goals>
+					</execution>
+				</executions>
+				<!-- Plugin configuration. There are many available options, see
+                  gwt-maven-plugin documentation at codehaus.org -->
+				<configuration>
+					<runTarget>overview.html</runTarget>
+					<modules>
+						<module>org.jboss.overview.Prbz</module>
+					</modules>
+				</configuration>
+			</plugin>
 		</plugins>
 		<pluginManagement>
 			<plugins>
@@ -67,7 +93,7 @@
 					<configuration>
 						<configLocation>jboss-as-checkstyle/checkstyle.xml</configLocation>
 						<consoleOutput>true</consoleOutput>
-						<failsOnError>true</failsOnError>
+						<!--<failsOnError>true</failsOnError>-->
 						<useFile />
 					</configuration>
 					<dependencies>
@@ -180,6 +206,38 @@
 			<artifactId>jboss-ejb-api_3.1_spec</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-servlet</artifactId>
+			<version>${gwt.version}</version>
+		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>com.google.gwt</groupId>-->
+			<!--<artifactId>gwt-user</artifactId>-->
+			<!--<scope>provided</scope>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>com.google.gwt</groupId>-->
+			<!--<artifactId>gwt-dev</artifactId>-->
+			<!--<scope>provided</scope>-->
+		<!--</dependency>-->
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
+			<version>${gwt.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sencha.gxt</groupId>
+			<artifactId>gxt</artifactId>
+			<version>${gxt.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sencha.gxt</groupId>
+			<artifactId>gxt-theme-neptune</artifactId>
+			<version>${gxt.version}</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<profiles>
