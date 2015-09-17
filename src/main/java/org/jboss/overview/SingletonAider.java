@@ -146,7 +146,7 @@ public class SingletonAider {
 
         final List<RedhatPullRequest> pullRequests = helper.getOpenPullRequests();
 
-        Map<Integer, RedhatPullRequest> pullRequestsMap = new HashMap<Integer, RedhatPullRequest>();
+        Map<Integer, RedhatPullRequest> pullRequestsMap = new HashMap<>();
 
         for (RedhatPullRequest pullRequest : pullRequests) {
             pullRequestsMap.put(pullRequest.getNumber(), pullRequest);

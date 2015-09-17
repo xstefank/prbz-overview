@@ -75,7 +75,7 @@ public class DataTableScrollerBean implements Serializable {
 
     public List<OverviewData> getDataList() {
         // retrieve a cache
-        dataList = new ArrayList<OverviewData>(aider.getCache().values());
+        dataList = new ArrayList<>(aider.getCache().values());
         Collections.sort(dataList, new Comparator<OverviewData>() {
             public int compare(OverviewData o1, OverviewData o2) {
                 if (o1.getPullRequest().getNumber() > o2.getPullRequest().getNumber())
@@ -88,7 +88,7 @@ public class DataTableScrollerBean implements Serializable {
     }
 
     public List<SelectItem> getBranchOptions() {
-        List<SelectItem> branchOptions = new ArrayList<SelectItem>();
+        List<SelectItem> branchOptions = new ArrayList<>();
         branchOptions.add(new SelectItem("", "All Branches"));
 
         for (String branch : aider.getHelper().getEvaluatorFacade().getCoveredBranches()) {

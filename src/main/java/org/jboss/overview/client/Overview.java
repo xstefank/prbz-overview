@@ -9,9 +9,6 @@ package org.jboss.overview.client;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.logging.client.ConsoleLogHandler;
-import com.google.gwt.logging.client.DevelopmentModeLogHandler;
-import com.google.gwt.logging.client.SimpleRemoteLogHandler;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -31,7 +28,6 @@ import org.jboss.overview.client.prbz.PrbzProperties;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Overview implements IsWidget, EntryPoint {
@@ -46,27 +42,27 @@ public class Overview implements IsWidget, EntryPoint {
     @Override
     public Widget asWidget() {
         if (panel == null) {
-            ColumnConfig<Prbz, String> nameCol = new ColumnConfig<Prbz, String>(props.name(), 50, SafeHtmlUtils.fromTrustedString("<b>Param name</b>"));
-            ColumnConfig<Prbz, String> valueCol = new ColumnConfig<Prbz, String>(props.value(), 150, "Param Value");
+            ColumnConfig<Prbz, String> nameCol = new ColumnConfig<>(props.name(), 50, SafeHtmlUtils.fromTrustedString("<b>Param name</b>"));
+            ColumnConfig<Prbz, String> valueCol = new ColumnConfig<>(props.value(), 150, "Param Value");
 
             //set cells
 
-            List<ColumnConfig<Prbz, ?>> columns = new ArrayList<ColumnConfig<Prbz, ?>>();
+            List<ColumnConfig<Prbz, ?>> columns = new ArrayList<>();
             columns.add(nameCol);
             columns.add(valueCol);
 
-            ColumnModel<Prbz> columnModel = new ColumnModel<Prbz>(columns);
+            ColumnModel<Prbz> columnModel = new ColumnModel<>(columns);
 
-            List<Prbz> list = new ArrayList<Prbz>();
+            List<Prbz> list = new ArrayList<>();
             list.add(new Prbz("name1", "value1"));
             list.add(new Prbz("name2", "value2"));
             list.add(new Prbz("name3", "value3"));
             list.add(new Prbz("name4", "value4"));
 
-            ListStore<Prbz> store = new ListStore<Prbz>(props.key());
+            ListStore<Prbz> store = new ListStore<>(props.key());
             store.addAll(list);
 
-            Grid<Prbz> grid = new Grid<Prbz>(store, columnModel);
+            Grid<Prbz> grid = new Grid<>(store, columnModel);
 
 
             VerticalLayoutContainer con = new VerticalLayoutContainer();
