@@ -35,7 +35,7 @@
 							columnClasses="center-column,center-column,center-column,center-column,center-column,center-column,center-column,left-column,center-column,center-column,center-column"
 							styleClass="stable">
 							<rich:column filterValue="#{dataTableScrollerBean.branchFilter}"
-								filterExpression="#{fn:containsIgnoreCase(dataVar.pullRequest.targetBranchTitle, dataTableScrollerBean.branchFilter)}"
+								filterExpression="#{fn:containsIgnoreCase(dataVar.pullRequestInfo.targetBranchTitle, dataTableScrollerBean.branchFilter)}"
 								headerClass="each-column-header">
 								<f:facet name="header">
 									<h:panelGroup>
@@ -47,11 +47,11 @@
 										</h:selectOneMenu>
 									</h:panelGroup>
 								</f:facet>
-								<h:outputText value="#{dataVar.pullRequest.targetBranchTitle}" />
+								<h:outputText value="#{dataVar.pullRequestInfo.targetBranchTitle}" />
 							</rich:column>
 
 							<!-- pull request id and current state -->
-							<rich:column id="pullcol" sortBy="#{dataVar.pullRequest.number}"
+							<rich:column id="pullcol" sortBy="#{dataVar.pullRequestInfo.number}"
 								sortOrder="#{dataTableScrollerBean.pullRequestOrder}"
 								headerClass="pullcol">
 								<f:facet name="header">
@@ -61,12 +61,12 @@
 										action="#{dataTableScrollerBean.sortByPullRequest}"
 										styleClass="pullcol" />
 								</f:facet>
-								<h:outputLink value="#{dataVar.pullRequest.htmlUrl}">
-									<h:outputText value="##{dataVar.pullRequest.number}" />
+								<h:outputLink value="#{dataVar.pullRequestInfo.htmlUrl}">
+									<h:outputText value="##{dataVar.pullRequestInfo.number}" />
 								</h:outputLink>
 								<h:outputText value="&lt;br/&gt;" escape="false" />
-								<h:outputText value="[#{dataVar.pullRequest.milestone.title}]"
-									rendered="#{dataVar.pullRequest.milestone != null}" />
+								<h:outputText value="[#{dataVar.pullRequestInfo.milestone.title}]"
+									rendered="#{dataVar.pullRequestInfo.milestone != null}" />
 							</rich:column>
 
 							<!-- lightning build result -->

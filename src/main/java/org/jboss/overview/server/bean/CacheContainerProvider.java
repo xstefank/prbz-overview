@@ -20,7 +20,7 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 
-package org.jboss.overview;
+package org.jboss.overview.server.bean;
 
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.ApplicationScoped;

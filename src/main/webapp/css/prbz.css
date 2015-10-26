@@ -1,0 +1,41 @@
+.rootPanel {
+    background-color: #d6d7ff;
+}
+
+
+.appHeading {
+    font-weight: bold;
+    color: black;
+    font-size: 40px;
+    text-align: center;
+    margin: 20px;
+}
+
+.dataTablePanel {
+    width: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    text-align: center;
+    border: solid thin #375c79;
+}
+
+.multiLineColumn {
+    border-color: black;
+    white-space: normal;
+}
+
+.columnHeader {
+    background-color: black;
+    white-space: normal;
+}
+
+/*.mycentertext.x-grid-cell {*/
+    /*vertical-align: middle;*/
+/*}*/
+
+/*.x-grid3-hd-inner {*/
+    /*overflow: hidden;*/
+    /*padding: 3px 3px 3px 5px;*/
+    /*white-space: normal;*/
+/*}*/

@@ -137,7 +137,7 @@
 	</dependencyManagement>
 
 	<dependencies>
-		<dependency>
+		<!--<dependency>
 			<groupId>org.atmosphere</groupId>
 			<artifactId>atmosphere-runtime</artifactId>
 		</dependency>
@@ -148,7 +148,7 @@
 		<dependency>
 			<groupId>org.richfaces.core</groupId>
 			<artifactId>richfaces-core-impl</artifactId>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>javax.faces</groupId>
 			<artifactId>javax.faces-api</artifactId>

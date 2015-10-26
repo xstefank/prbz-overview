@@ -20,7 +20,7 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 
-package org.jboss.overview;
+package org.jboss.overview.server.bean;
 
 import java.util.HashMap;
 import java.util.List;
@@ -43,14 +43,14 @@ import javax.inject.Inject;
 
 import org.infinispan.api.BasicCache;
 import org.jboss.logging.Logger;
-import org.jboss.overview.model.OverviewData;
+import org.jboss.overview.server.OverviewData;
 import org.jboss.pull.shared.BuildResult;
 import org.jboss.pull.shared.connectors.RedhatPullRequest;
 import org.jboss.pull.shared.connectors.common.Issue;
 import org.jboss.pull.shared.ProcessorPullState;
 import org.jboss.pull.shared.PullHelper;
 import org.jboss.pull.shared.spi.PullEvaluator.Result;
-import org.richfaces.application.push.MessageException;
+//import org.richfaces.application.push.MessageException;
 
 /**
  * @author wangchao
@@ -112,11 +112,11 @@ public class SingletonAider {
             OverviewData pullRequestData = getOverviewData(pullRequest);
             cache.put(pullRequest.getNumber(), pullRequestData, -1, TimeUnit.SECONDS);
 
-            try {
-                DataTableScrollerBean.push();
-            } catch (MessageException e) {
-                e.printStackTrace(System.err);
-            }
+//            try {
+//                DataTableScrollerBean.push();
+//            } catch (MessageException e) {
+//                e.printStackTrace(System.err);
+//            }
         }
         LOGGER.info("cache initialization completed.");
     }
@@ -158,11 +158,11 @@ public class SingletonAider {
         for (Integer key : keys) {
             if (!ids.contains(key)) {
                 cache.remove(key);
-                try {
-                    DataTableScrollerBean.push();
-                } catch (MessageException e) {
-                    e.printStackTrace(System.err);
-                }
+//                try {
+//                    DataTableScrollerBean.push();
+//                } catch (MessageException e) {
+//                    e.printStackTrace(System.err);
+//                }
             }
         }
 
@@ -170,11 +170,11 @@ public class SingletonAider {
         keys = cache.keySet();
         for (Integer key : keys) {
             cache.replace(key, cache.get(key), getOverviewData(pullRequestsMap.get(key)));
-            try {
-                DataTableScrollerBean.push();
-            } catch (MessageException e) {
-                e.printStackTrace(System.err);
-            }
+//            try {
+//                DataTableScrollerBean.push();
+//            } catch (MessageException e) {
+//                e.printStackTrace(System.err);
+//            }
         }
 
         // for all new pull requests, add into cache.
@@ -182,11 +182,11 @@ public class SingletonAider {
             if (!keys.contains(id)) {
                 OverviewData overviewData = getOverviewData(pullRequestsMap.get(id));
                 cache.put(id, overviewData);
-                try {
-                    DataTableScrollerBean.push();
-                } catch (MessageException e) {
-                    e.printStackTrace(System.err);
-                }
+//                try {
+//                    DataTableScrollerBean.push();
+//                } catch (MessageException e) {
+//                    e.printStackTrace(System.err);
+//                }
             }
         }
     }

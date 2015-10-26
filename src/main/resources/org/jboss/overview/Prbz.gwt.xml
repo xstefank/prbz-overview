@@ -3,12 +3,15 @@
     <!-- Inherit the core Web Toolkit stuff.                        -->
     <inherits name='com.google.gwt.user.User' />
 
+    <!-- Other module inherits                                      -->
     <inherits name="com.sencha.gxt.ui.GXT" />
     <!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
     <!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/>     -->
     <inherits name="com.sencha.gxt.theme.neptune.Theme" />
 
-    <!-- Other module inherits                                      -->
+    <inherits name="com.google.gwt.logging.Logging" />
+    <inherits name="com.google.gwt.resources.Resources" />
+
     <stylesheet src="reset.css" />
 
     <!-- Specify the app entry point class.                         -->
@@ -16,6 +19,8 @@
 
     <!-- Specify the paths for translatable code                    -->
     <source path='client' />
+    <source path='shared' />
+
 
 
     <!-- Workaround for neptune theme and gwt plugin-->
